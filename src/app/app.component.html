@@ -1,0 +1,20 @@
+<fieldset>
+  <div class="fundo">
+      <form>
+          <label for="nome">Nome: </label>
+          <input class="form" type="text" name="nome" [(ngModel)]="cliente.Nome"> <br>
+      
+          <label for="cpf">CPF: </label>
+          <input class="form" type="text" name="cpf" [(ngModel)]="cliente.CPF"> <br>
+        
+          <label for="cep">CEP: </label>
+          
+<input class="form" type="text" name="cep" [(ngModel)]="cliente.CEP" (blur)="VerificaCEP()"> <br>
+        
+        <label for="endereco">Endereço: </label>
+        <input class="form" type="text" name="endereco" [(ngModel)]="cliente.Endereco">
+           
+          <p *ngIf="!cliente.CPFValido()">CPF Inválido </p>
+      
+          <input class="form" type="button" (click)="salvar()" value="Salvar" [disabled]="!cliente.CPFValido()" />
+    </form>
